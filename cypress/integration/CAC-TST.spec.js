@@ -5,7 +5,8 @@
 describe('Central de Atendimento ao Cliente TAT', function () {
     beforeEach('verifica o título da aplicação', function () {
         cy.visit(`./src/index.html`)
-        cy.title().should(`be.equal`, `Central de Atendimento ao Cliente TAT`)
+        cy.title()
+            .should(`be.equal`, `Central de Atendimento ao Cliente TAT`)
     })
 
     it('preenche os campos obrigatórios e envia o formulário', function () {
@@ -24,7 +25,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         cy.get('#open-text-area')
             .type(texto, { delay: 0 })
 
-        cy.get(`[type="submit"]`)
+        cy.contains(`button`, 'Enviar')
             .click().should(`be.visible`, `success`)
 
     })
@@ -44,7 +45,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         cy.get('#open-text-area')
             .type(texto, { delay: 0 })
 
-        cy.get(`[type="submit"]`)
+        cy.contains(`button`, 'Enviar')
             .click().should(`be.visible`, `error`)
 
 
@@ -81,7 +82,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
             .type('ABVFCRTEBE')
             .should(`have.value`, ``)
 
-        cy.get(`[type="submit"]`)
+        cy.contains(`button`, 'Enviar')
             .click().should(`be.visible`, `error`)
 
 
@@ -108,5 +109,27 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 
 
     })
+
+    it('envia formulario e envia sem preecher campos ', function () {
+
+
+        cy.get(`[type="submit"]`)
+            .click().should(`be.visible`, `error`)
+    })
+
+    it('envia formulario e envia sem preecher campos ', function () {
+
+
+        cy.contains(`button`, 'Enviar')
+            .click().should(`be.visible`, `error`)
+    })
+
+    it('Comando customizado ', function () {
+
+        cy.enviaCampos()
+
+            .should(`be.visible`, `success`)
+    })
+
 
 })
