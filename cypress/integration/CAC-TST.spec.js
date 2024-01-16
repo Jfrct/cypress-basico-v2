@@ -121,7 +121,8 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 
 
         cy.contains(`button`, 'Enviar')
-            .click().should(`be.visible`, `error`)
+            .click()
+            .should(`be.visible`, `error`)
     })
 
     it('Comando customizado ', function () {
@@ -129,6 +130,30 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         cy.enviaCampos()
 
             .should(`be.visible`, `success`)
+    })
+
+    it('Seleciona um list TEXTO ', function () {
+
+        cy.get('#product')
+
+            .select(`YouTube`)
+            .should('have.value', 'youtube')
+    })
+
+    it('Seleciona um list VELUE ', function () {
+
+        cy.get('#product')
+
+            .select(`mentoria`)
+            .should('have.value', 'mentoria')
+    })
+
+    it.only('Seleciona um list INDICE', function () {
+
+        cy.get('#product')
+
+            .select(1)
+            .should('have.value', 'blog')
     })
 
 
