@@ -60,7 +60,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 
 
     })
-    it('exibir erro com campo telefone obrigatorio', function () {
+    it.only('exibir erro com campo telefone obrigatorio', function () {
 
         const texto = `RTESTESTETSTE TESTE TYESTERTESTESTETSTE TESTE TYESTERTESTESTETSTE TESTE TYESTE`
         cy.get('#firstName')
@@ -73,7 +73,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
             .type(`testeemail ruim`)
 
         cy.get(`#phone-checkbox`)
-            .click()
+            .check()
 
         cy.get('#open-text-area')
             .type(texto, { delay: 0 })
@@ -165,17 +165,39 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 
     })
 
-    it.only(`marca todos os antendimento`, function () {
+    it(`marca todos os antendimento`, function () {
 
-        cy.get(`input[type="ratio"]`)
-            .should(`have.lenght`, 3)
-            .each(function($radio){
-                cy.wrap($radio).check()
-                cy.wrap($radio).should(`be.checked`)
+        cy.get(`input[type="radio"]`)
+            .should(`have.length`, 3)
+            .each(function ($radio) {
+                cy.wrap($radio).check();
+                cy.wrap($radio).should(`be.checked`);
 
-                })
-        
+            })
+
+        })
+
+    it(`marca ambos e depois desmarca o ultimo`, function (){
+
+        cy.get('input[type="checkbox"]')
+        .check()
+        .last()
+        .uncheck()
+        .should('not.be.checked')
+
+
+    })    
+    
+    it(`importa arquivos`,function(){
+
+        cy.get('input[type=file]')
+
+
     })
+
+
+
+    
 
 
 
