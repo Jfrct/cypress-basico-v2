@@ -60,7 +60,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 
 
     })
-    it.only('exibir erro com campo telefone obrigatorio', function () {
+    it('exibir erro com campo telefone obrigatorio', function () {
 
         const texto = `RTESTESTETSTE TESTE TYESTERTESTESTETSTE TESTE TYESTERTESTESTETSTE TESTE TYESTE`
         cy.get('#firstName')
@@ -188,16 +188,21 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 
     })    
     
-    it(`importa arquivos`,function(){
+    it.only(`importa arquivos`,function(){
 
         cy.get('input[type=file]')
+         .selectFile('cypress/fixtures/example.json') 
 
+         
+    })
 
+    it.only('Importa arquivo drag and drop ', function(){
+        cy.get('input[type=file]')
+        .selectFile('cypress/fixtures/example.json', { action : 'drag-drop'}) 
+        //simula como se o arquivo é arrastado para dentro do site
     })
 
 
-
-    
 
 
 
