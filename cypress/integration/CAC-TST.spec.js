@@ -199,7 +199,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
     it.only('Importa arquivo drag and drop ', function(){
         cy.get('input[type=file]')
         .selectFile('cypress/fixtures/example.json', { action : 'drag-drop'}) 
-        //simula como se o arquivo é arrastado para dentro do site.
+        //simula como se o arquivo é arrastado para dentro do site. 
     })
 
 
