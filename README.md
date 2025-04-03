@@ -1,4 +1,4 @@
-Este repositório contem práticas essenciais de testes automatizados com Cypress, abordando a configuração básica de componentes e ferramentas do CYPREAS
+Este repositório contem práticas essenciais de testes automatizados com Cypress, abordando a configuração básica de componentes e ferramentas do CYPRESS
 
 Configuração e Navegação
 Como configurar um projeto Cypress do zero
